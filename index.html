@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submission Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="loadingScreen" class="loading">
+        <p>Loading...</p>
+    </div>
+    <div class="container" id="content" style="display:none;">
+        <h1>Submission Form</h1>
+        <form id="channelForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required></textarea>
+
+            <div id="tagsSection">
+                <label for="tags">Tags:</label>
+                <div id="tagsContainer"></div>
+                <label for="customTag">Add your own tag:</label>
+                <input type="text" id="customTag" name="customTag">
+            </div>
+
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location">
+
+            <label for="url">URL:</label>
+            <input type="url" id="url" name="url" placeholder="https://example.com">
+
+            <label for="hero">Upload Hero Image:</label>
+            <input type="file" id="hero" name="hero" accept="image/*">
+
+            <button type="submit">Create Channel</button>
+        </form>
+        <div id="feedback"></div>
+    </div>
+    <script src="script.js"></script>
+    <script src="textScramble.js"></script>
+</body>
+
+</html>

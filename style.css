@@ -26,8 +26,10 @@ body {
   font-size: 1rem;
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ensure the body takes up the full height of the viewport */
+  background-color: #f7f7f7; /* Optional: Set a background color */
 }
-
 :root{
   --primary: rgb(0, 255, 0);
   --fontColor: black;
@@ -116,3 +118,36 @@ button:hover {
   align-items: center;
   font-size: 1.5rem;
 }
+
+.form-section {
+  display: none;
+}
+
+.form-section.active {
+  display: block;
+}
+
+.next-button, .prev-button, .submit-button {
+  margin-top: 20px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  gap: 50%;
+}
+
+.button-group button {
+  flex: 1;
+  margin: 0 5px;
+}
+
+.button-group .prev-button {
+  margin-right: auto;
+}
+
+.button-group .next-button {
+  margin-left: auto;
+}
+

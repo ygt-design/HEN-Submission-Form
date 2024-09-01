@@ -21,9 +21,36 @@ const predefinedTags = [
 ];
 
 document.addEventListener("DOMContentLoaded", async function () {
-  const tagsContainer = document.getElementById("tagsContainer");
+  const sections = document.querySelectorAll(".form-section");
   const loadingScreen = document.getElementById("loadingScreen");
   const content = document.getElementById("content");
+  let currentSectionIndex = 0;
+
+  function showSection(index) {
+    sections.forEach((section, i) => {
+      section.style.display = i === index ? "block" : "none";
+    });
+  }
+
+  document.querySelectorAll(".next-button").forEach((button) => {
+    button.addEventListener("click", function () {
+      if (currentSectionIndex < sections.length - 1) {
+        currentSectionIndex++;
+        showSection(currentSectionIndex);
+      }
+    });
+  });
+
+  document.querySelectorAll(".prev-button").forEach((button) => {
+    button.addEventListener("click", function () {
+      if (currentSectionIndex > 0) {
+        currentSectionIndex--;
+        showSection(currentSectionIndex);
+      }
+    });
+  });
+
+  showSection(currentSectionIndex);
 
   try {
     console.log("Fetching user channels...");
@@ -78,6 +105,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     const tags = Array.from(tagsSet).sort();
 
     console.log("Fetched tags:", tags);
+
+    const tagsContainer = document.getElementById("tagsContainer");
 
     tags.forEach((tag) => {
       const label = document.createElement("label");

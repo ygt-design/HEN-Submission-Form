@@ -15,32 +15,72 @@
     <div class="container" id="content" style="display:none;">
         <h1>Submission Form</h1>
         <form id="channelForm">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="description">Description:</label>
-            <textarea id="description" name="description" required></textarea>
-
-            <div id="tagsSection">
-                <label for="tags">Tags:</label>
-                <div id="tagsContainer"></div>
-                <label for="customTag">Add your own tag:</label>
-                <input type="text" id="customTag" name="customTag">
+            <!-- Section 1 -->
+            <div class="form-section" id="section-1">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <div class="button-group">
+                    <button type="button" class="next-button">Next</button>
+                </div>
             </div>
 
-            <label for="location">Location:</label>
-            <input type="text" id="location" name="location">
+            <!-- Section 2 -->
+            <div class="form-section" id="section-2" style="display:none;">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required></textarea>
+                <div class="button-group">
+                    <button type="button" class="prev-button">Previous</button>
+                    <button type="button" class="next-button">Next</button>
+                </div>
+            </div>
 
-            <label for="url">URL:</label>
-            <input type="url" id="url" name="url" placeholder="https://example.com">
+            <!-- Section 3 -->
+            <div class="form-section" id="section-3" style="display:none;">
+                <div id="tagsSection">
+                    <label for="tags">Tags:</label>
+                    <div id="tagsContainer"></div>
+                    <label for="customTag">Add your own tag:</label>
+                    <input type="text" id="customTag" name="customTag">
+                </div>
+                <div class="button-group">
+                    <button type="button" class="prev-button">Previous</button>
+                    <button type="button" class="next-button">Next</button>
+                </div>
+            </div>
 
-            <label for="hero">Upload Hero Image:</label>
-            <input type="file" id="hero" name="hero" accept="image/*">
+            <!-- Section 4 -->
+            <div class="form-section" id="section-4" style="display:none;">
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location">
+                <div class="button-group">
+                    <button type="button" class="prev-button">Previous</button>
+                    <button type="button" class="next-button">Next</button>
+                </div>
+            </div>
 
-            <button type="submit">Create Channel</button>
+            <!-- Section 5 -->
+            <div class="form-section" id="section-5" style="display:none;">
+                <label for="url">URL:</label>
+                <input type="url" id="url" name="url" placeholder="https://example.com">
+                <div class="button-group">
+                    <button type="button" class="prev-button">Previous</button>
+                    <button type="button" class="next-button">Next</button>
+                </div>
+            </div>
+
+            <!-- Section 6 -->
+            <div class="form-section" id="section-6" style="display:none;">
+                <label for="hero">Upload Hero Image:</label>
+                <input type="file" id="hero" name="hero" accept="image/*">
+                <div class="button-group">
+                    <button type="button" class="prev-button">Previous</button>
+                    <button type="submit" class="submit-button">Submit</button>
+                </div>
+            </div>
         </form>
         <div id="feedback"></div>
     </div>
+
     <script src="script.js"></script>
     <script src="textScramble.js"></script>
 </body>

@@ -52,8 +52,11 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   showSection(currentSectionIndex);
 
+  const tagsContainer = document.getElementById("tagsContainer");
+  const connectionsContainer = document.getElementById("connectionsContainer");
+
   try {
-    console.log("Fetching user channels...");
+    console.log("Fetching user channels for tags and connections...");
     const channelsResponse = await fetch(
       "https://api.are.na/v2/users/hen-archives/channels",
       {
@@ -106,8 +109,6 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     console.log("Fetched tags:", tags);
 
-    const tagsContainer = document.getElementById("tagsContainer");
-
     tags.forEach((tag) => {
       const label = document.createElement("label");
       const checkbox = document.createElement("input");
@@ -122,6 +123,22 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
 
     console.log("Tags added to UI.");
+
+    // Add connections to UI
+    channels.forEach((channel) => {
+      const label = document.createElement("label");
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.name = "connections";
+      checkbox.value = channel.title;
+
+      label.appendChild(checkbox);
+      label.appendChild(document.createTextNode(channel.title));
+      connectionsContainer.appendChild(label);
+      connectionsContainer.appendChild(document.createElement("br"));
+    });
+
+    console.log("Connections added to UI.");
   } catch (error) {
     console.error("Error:", error);
   } finally {
@@ -144,9 +161,19 @@ document
       document.querySelectorAll("input[name='tags']:checked")
     ).map((tag) => tag.value);
     const customTag = document.getElementById("customTag").value.trim();
+    const selectedConnections = Array.from(
+      document.querySelectorAll("input[name='connections']:checked")
+    ).map((connection) => connection.value);
+    const customConnection = document
+      .getElementById("customConnection")
+      .value.trim();
 
     if (customTag) {
       selectedTags.push(customTag);
+    }
+
+    if (customConnection) {
+      selectedConnections.push(customConnection);
     }
 
     if (!name || !description) {
@@ -229,6 +256,32 @@ document
       }
 
       console.log("Tags block added.");
+
+      // Add connections block
+      if (selectedConnections.length > 0) {
+        const connectionsContent = selectedConnections.join(", ");
+        const addConnectionsBlockResponse = await fetch(
+          `https://api.are.na/v2/channels/${channelId}/blocks`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + auth,
+            },
+            body: JSON.stringify({
+              content: connectionsContent,
+              title: "Connections",
+            }),
+          }
+        );
+
+        if (!addConnectionsBlockResponse.ok) {
+          const errorText = await addConnectionsBlockResponse.text();
+          throw new Error(`Error adding connections block: ${errorText}`);
+        }
+
+        console.log("Connections block added.");
+      }
 
       // Add location block
       if (location) {

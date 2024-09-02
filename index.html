@@ -17,7 +17,7 @@
         <form id="channelForm">
             <!-- Section 1 -->
             <div class="form-section" id="section-1">
-                <label for="name">Name:</label>
+                <label for="name">Name</label>
                 <input type="text" id="name" name="name" required>
                 <div class="button-group">
                     <button type="button" class="next-button">Next</button>
@@ -26,7 +26,7 @@
 
             <!-- Section 2 -->
             <div class="form-section" id="section-2" style="display:none;">
-                <label for="description">Description:</label>
+                <label for="description">Description</label>
                 <textarea id="description" name="description" required></textarea>
                 <div class="button-group">
                     <button type="button" class="prev-button">Previous</button>
@@ -37,7 +37,7 @@
             <!-- Section 3 -->
             <div class="form-section" id="section-3" style="display:none;">
                 <div id="tagsSection">
-                    <label for="tags">Tags:</label>
+                    <label for="tags">Tags</label>
                     <div id="tagsContainer"></div>
                     <label for="customTag">Add your own tag:</label>
                     <input type="text" id="customTag" name="customTag">
@@ -50,7 +50,7 @@
 
             <!-- Section 4 -->
             <div class="form-section" id="section-4" style="display:none;">
-                <label for="location">Location:</label>
+                <label for="location">Location</label>
                 <input type="text" id="location" name="location">
                 <div class="button-group">
                     <button type="button" class="prev-button">Previous</button>
@@ -60,7 +60,7 @@
 
             <!-- Section 5 -->
             <div class="form-section" id="section-5" style="display:none;">
-                <label for="url">URL:</label>
+                <label for="url">URL</label>
                 <input type="url" id="url" name="url" placeholder="https://example.com">
                 <div class="button-group">
                     <button type="button" class="prev-button">Previous</button>
@@ -70,8 +70,22 @@
 
             <!-- Section 6 -->
             <div class="form-section" id="section-6" style="display:none;">
-                <label for="hero">Upload Hero Image:</label>
+                <label for="hero">Upload Hero Image</label>
                 <input type="file" id="hero" name="hero" accept="image/*">
+                <div class="button-group">
+                    <button type="button" class="prev-button">Previous</button>
+                    <button type="button" class="next-button">Next</button>
+                </div>
+            </div>
+
+            <!-- Section 7 -->
+            <div class="form-section" id="section-7" style="display:none;">
+                <div id="connectionsSection">
+                    <label for="connections">Connections</label>
+                    <div id="connectionsContainer"></div>
+                    <label for="customConnection">Add your own connection:</label>
+                    <input type="text" id="customConnection" name="customConnection">
+                </div>
                 <div class="button-group">
                     <button type="button" class="prev-button">Previous</button>
                     <button type="submit" class="submit-button">Submit</button>

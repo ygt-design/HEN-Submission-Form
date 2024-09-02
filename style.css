@@ -27,8 +27,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Ensure the body takes up the full height of the viewport */
-  background-color: #f7f7f7; /* Optional: Set a background color */
+  height: 100vh;
+  background-color: #f7f7f7; 
 }
 :root{
   --primary: rgb(0, 255, 0);
@@ -37,8 +37,12 @@ body {
 
 .container {
   padding: 20px;
-  max-width: 500px;
+  max-width: 700px;
   width: 100%;
+}
+
+h1{
+  margin-bottom: 50px;
 }
 
 h1, h3, .loading {
@@ -62,7 +66,6 @@ button {
   padding: 10px;
   margin-top: 5px;
   border: 1px solid #ccc;
-  border-radius: 4px;
   box-sizing: border-box;
 }
 
@@ -70,7 +73,6 @@ button {
   background-color: var(--primary);
   color: var(--fontColor);
   border: none;
-  border-radius: 0;
   cursor: pointer;
   margin-top: 20px;
 }
@@ -84,7 +86,6 @@ button:hover {
   font-size: 0.9rem;
 }
 
-/* Flexbox styles for tag checkboxes */
 #tagsContainer {
   display: flex;
   flex-wrap: wrap;
@@ -105,7 +106,6 @@ button:hover {
   margin: 0;
 }
 
-/* Loading screen styles */
 .loading {
   position: fixed;
   top: 0;
@@ -151,3 +151,100 @@ button:hover {
   margin-left: auto;
 }
 
+#connectionsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+#connectionsContainer label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #f0f0f0;
+  padding: 5px;
+  cursor: pointer;
+  text-wrap: nowrap;
+}
+
+#connectionsContainer input[type="checkbox"] {
+  margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px; 
+  margin-top: 8px; 
+  border: none;
+  border-bottom: .5px solid rgb(183, 183, 183); 
+  background-color: #f7f7f7;
+  box-sizing: border-box; 
+  font-family: 'Roboto Mono', monospace; 
+  font-size: .9rem; 
+  transition: all 200ms ease;
+}
+
+input:focus,
+textarea:focus {
+  box-shadow: 0 0 5px var(--primary);
+  border-bottom: .5px solid #f7f7f7; 
+  outline: none; 
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #aaa; 
+  font-style: italic; 
+}
+
+input[type="file"] {
+  padding: 10px 0; 
+  background-color: transparent; 
+  border: none;
+}
+
+input[type="file"]:hover {
+  cursor: pointer; 
+  border: none;
+  box-shadow: none;
+}
+
+button {
+  background-color: var(--primary); 
+  color: var(--fontColor); 
+  cursor: pointer;
+  font-size: .8rem; 
+  transition: background-color 0.1s ease, transform 0.1s ease;
+  font-family: 'Roboto Mono', monospace; 
+  max-width: 100px;
+}
+
+button:hover {
+  background-color: black; 
+  color: white;
+}
+
+
+.submit-button{
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-family: 'Roboto Mono', monospace;
+  transition: background-color 0.1s ease, transform 0.1s ease;
+}
+
+.submit-button:hover {
+  background-color: var(--primary);
+  color: black;
+}
